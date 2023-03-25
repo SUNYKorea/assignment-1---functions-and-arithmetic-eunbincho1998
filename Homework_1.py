@@ -54,29 +54,38 @@ print("Recommended clothing: " + SuggestedClothing)
 # TODO: Fill the functions shoelace_triangle_area, euclidean_distance and
 # compute_triangle_perimeter from scratch  
 
-def shoelace_triangle_area(x1, y1, x2, y2, x3, y3):
+def shoelace_triangle_area(x1, y1, x2, y2, x3, y3):                        #Area function
     Area = abs((((x1*y2)+(x2*y3)+(x3*y1))-((x1*y3)+(x2*y1)+(x3*y2)))/2)
     return Area
 
-def euclidean_distance(x1, y1, x2, y2):
-    ...
+def euclidean_distance(x1, y1, x2, y2):                                    #Distance function
+    Distance = (((x1 - x2)**2) + ((y1 - y2)**2))**0.5
+    return Distance
 
-def compute_triangle_perimeter(x1, y1, x2, y2, x3, y3):
-    ...
+def compute_triangle_perimeter(x1, y1, x2, y2, x3, y3):                    #Perimeter function
+    LengthOfSide1 = euclidean_distance(x1, y1, x2, y2)                     #Using Distance function
+    LengthOfSide2 = euclidean_distance(x2, y2, x3, y3)
+    LengthOfSide3 = euclidean_distance(x3, y3, x1, y1)
+    Perimeter = LengthOfSide1 + LengthOfSide2 + LengthOfSide3
+    return Perimeter
 
 print()
-print("Let's solve for the area and the perimeter of a triangle with its vertices!")
+print("Let's solve for the area and the perimeter of a triangle with its vertices!")         #Instruction
 print()
 
-x1 = float(input("What is x1? x1 = "))
+x1 = float(input("What is x1? x1 = "))                                                       #Value inputs of three vertices
 y1 = float(input("What is y1? y1 = "))
 x2 = float(input("What is x2? x2 = "))
 y2 = float(input("What is y2? y2 = "))
 x3 = float(input("What is x3? x3 = "))
 y3 = float(input("What is y3? y3 = "))
+print()
 
-TriangleArea = shoelace_triangle_area(x1, y1, x2, y2, x3, y3)
+TriangleArea = shoelace_triangle_area(x1, y1, x2, y2, x3, y3)                                #Using area function
 print("The area of the triangle is " + str(TriangleArea) + " squared units.")
+
+TrianglePerimeter = compute_triangle_perimeter(x1, y1, x2, y2, x3, y3)                       #Using perimeter function
+print("The perimeter of the triangle is " + str(TrianglePerimeter) + " units.")
 
 '''
 # ---------------------------- Exercise III -------------------------------------
