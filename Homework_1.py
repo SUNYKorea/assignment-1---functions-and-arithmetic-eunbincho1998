@@ -2,7 +2,7 @@
 # SBUID: 115935488
 
 # Remove the ellipses (...) when writing your solutions.
-
+'''
 # ---------------------------- Exercise I ---------------------------------------
 # ----------------- Convert Fahrenheit to Celsius -------------------------------
 # TODO: Complete the implementation of fahrenheit2celsius () and what_to_wear(). 
@@ -86,23 +86,28 @@ print("The area of the triangle is " + str(TriangleArea) + " squared units.")
 
 TrianglePerimeter = compute_triangle_perimeter(x1, y1, x2, y2, x3, y3)                       #Using perimeter function
 print("The perimeter of the triangle is " + str(TrianglePerimeter) + " units.")
-
 '''
+
 # ---------------------------- Exercise III -------------------------------------
 # ----------------- Compute the area of a regular polygon -----------------------
 # TODO: Fill the functions deg2rad, apothem  and polygon_area 
 
+import math
 
 def deg2rad(deg):
-    ...
+    rad = deg * math.pi / 180
+    return rad
 
 def apothem(number_sides, length_side):
-   ...
+   
 
 def polygon_area(number_sides, length_side):
-   ...
+   
 
-
+deg = float(input("angle = "))
+rad = deg2rad(deg)
+print(rad)
+'''
 # ---------------------------- Test -------------------------------------
 # The following lines are for testing purposes, and will not be part of
 # your grade. You may freely modify the following codes.
