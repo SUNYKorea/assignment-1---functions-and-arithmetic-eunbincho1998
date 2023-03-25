@@ -48,14 +48,15 @@ print("Recommended clothing: " + SuggestedClothing)
 
 
 
-'''
+
 # ---------------------------- Exercise II --------------------------------------
 # ----------------- Area and perimeter of a triangle  ---------------------------
 # TODO: Fill the functions shoelace_triangle_area, euclidean_distance and
 # compute_triangle_perimeter from scratch  
 
 def shoelace_triangle_area(x1, y1, x2, y2, x3, y3):
-    ...
+    Area = abs((((x1*y2)+(x2*y3)+(x3*y1))-((x1*y3)+(x2*y1)+(x3*y2)))/2)
+    return Area
 
 def euclidean_distance(x1, y1, x2, y2):
     ...
@@ -63,7 +64,21 @@ def euclidean_distance(x1, y1, x2, y2):
 def compute_triangle_perimeter(x1, y1, x2, y2, x3, y3):
     ...
 
+print()
+print("Let's solve for the area and the perimeter of a triangle with its vertices!")
+print()
 
+x1 = float(input("What is x1? x1 = "))
+y1 = float(input("What is y1? y1 = "))
+x2 = float(input("What is x2? x2 = "))
+y2 = float(input("What is y2? y2 = "))
+x3 = float(input("What is x3? x3 = "))
+y3 = float(input("What is y3? y3 = "))
+
+TriangleArea = shoelace_triangle_area(x1, y1, x2, y2, x3, y3)
+print("The area of the triangle is " + str(TriangleArea) + " squared units.")
+
+'''
 # ---------------------------- Exercise III -------------------------------------
 # ----------------- Compute the area of a regular polygon -----------------------
 # TODO: Fill the functions deg2rad, apothem  and polygon_area 
