@@ -1,5 +1,5 @@
-# Name:
-# SBUID: 
+# Name: Eunbin Cho
+# SBUID: 115935488
 
 # Remove the ellipses (...) when writing your solutions.
 
@@ -7,12 +7,26 @@
 # ----------------- Convert Fahrenheit to Celsius -------------------------------
 # TODO: Complete the implementation of fahrenheit2celsius () and what_to_wear(). 
 
-def fahrenheit2celsius(fahrenheit): 
-   ...
+def fahrenheit2celsius(fahrenheit):                                     #convert fahrenheit to celsius
+   celsius = (5/9)*(fahrenheit - 32)
+   return celsius
 
 def what_to_wear(celsius):
    ...
 
+print()
+print("Let's convert the temperature from Fahrenheit to Celsius!")      #instruction
+print()
+
+TemperatureFahrenheit = float(input("What is the temperature in Fahrenheit? Temperature in Fahrenheit:  ")) 
+ConvertedCelsius = str(fahrenheit2celsius(TemperatureFahrenheit))
+DegreeSymbol = u"\N{DEGREE SIGN}"                                       #to print degree sign
+print()
+
+print("The given temperature in Celsius is " + ConvertedCelsius + DegreeSymbol + "C")
+
+
+'''
 # ---------------------------- Exercise II --------------------------------------
 # ----------------- Area and perimeter of a triangle  ---------------------------
 # TODO: Fill the functions shoelace_triangle_area, euclidean_distance and
@@ -62,3 +76,4 @@ number_sides = 5
 length_side = 4
 print ("The area of the polygon is : " + str(polygon_area(number_sides, length_side)))
 
+'''
