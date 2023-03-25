@@ -2,7 +2,7 @@
 # SBUID: 115935488
 
 # Remove the ellipses (...) when writing your solutions.
-'''
+
 # ---------------------------- Exercise I ---------------------------------------
 # ----------------- Convert Fahrenheit to Celsius -------------------------------
 # TODO: Complete the implementation of fahrenheit2celsius () and what_to_wear(). 
@@ -46,6 +46,8 @@ print()
 SuggestedClothing = what_to_wear(ConvertedCelsius)                                  #takes the converted temperature to recommend clothes
 print("Recommended clothing: " + SuggestedClothing)
 
+print()
+print("---------- End of Exercise 1 ----------")
 
 
 
@@ -86,7 +88,9 @@ print("The area of the triangle is " + str(TriangleArea) + " squared units.")
 
 TrianglePerimeter = compute_triangle_perimeter(x1, y1, x2, y2, x3, y3)                       #Using perimeter function
 print("The perimeter of the triangle is " + str(TrianglePerimeter) + " units.")
-'''
+
+print()
+print("---------- End of Exercise 2 ----------")
 
 # ---------------------------- Exercise III -------------------------------------
 # ----------------- Compute the area of a regular polygon -----------------------
@@ -95,19 +99,32 @@ print("The perimeter of the triangle is " + str(TrianglePerimeter) + " units.")
 import math
 
 def deg2rad(deg):
-    rad = deg * math.pi / 180
-    return rad
+    radian = deg * math.pi / 180
+    return radian
 
 def apothem(number_sides, length_side):
-   
+    angle = 180 / number_sides
+    apothem = length_side / (2*math.tan(deg2rad(angle)))
+    return apothem
 
 def polygon_area(number_sides, length_side):
-   
+   area = number_sides * length_side * apothem(number_sides, length_side) / 2
+   return area
 
-deg = float(input("angle = "))
-rad = deg2rad(deg)
-print(rad)
-'''
+print()
+print("Let's solve for the area of a regular polygon!")
+print()
+
+SideNumber = float(input("How many sides does this polygon have? Side: "))
+SideLength = float(input("How long is the side of this polygon? Length: "))
+PolygonArea = polygon_area(SideNumber, SideLength)
+
+print()
+print("The area of the given polygon is " + str(PolygonArea) + " squared units.")
+
+print()
+print("---------- End of Exercise 3 ----------")
+
 # ---------------------------- Test -------------------------------------
 # The following lines are for testing purposes, and will not be part of
 # your grade. You may freely modify the following codes.
@@ -127,4 +144,3 @@ number_sides = 5
 length_side = 4
 print ("The area of the polygon is : " + str(polygon_area(number_sides, length_side)))
 
-'''
