@@ -7,23 +7,45 @@
 # ----------------- Convert Fahrenheit to Celsius -------------------------------
 # TODO: Complete the implementation of fahrenheit2celsius () and what_to_wear(). 
 
-def fahrenheit2celsius(fahrenheit):                                     #convert fahrenheit to celsius
+def fahrenheit2celsius(fahrenheit):                               #convert fahrenheit to celsius
    celsius = (5/9)*(fahrenheit - 32)
    return celsius
 
-def what_to_wear(celsius):
-   ...
+def what_to_wear(celsius):                                        #returns the appropriate clothing choice based on temperature in celsius
+   if celsius < -10:
+      return "Puffy Jacket"
+   if celsius == -10:
+      return "Puffy Jacket or Scarf"
+   if -10 < celsius < 0:
+      return "Scarf" 
+   if celsius == 0:
+      return "Scarf or Sweater"
+   if 0 < celsius < 10:
+      return "Sweater"
+   if celsius == 10:
+      return "Sweater or Light Jacket"
+   if 10 < celsius < 20:
+      return "Light Jacket"
+   if celsius == 20:
+      return "Light Jacket or T-shirt"
+   if celsius > 20:
+      return "T-shirt"
 
 print()
-print("Let's convert the temperature from Fahrenheit to Celsius!")      #instruction
+print("Let's convert the temperature from Fahrenheit to Celsius and see what clothing is recommended!")     #instruction
 print()
 
 TemperatureFahrenheit = float(input("What is the temperature in Fahrenheit? Temperature in Fahrenheit:  ")) 
-ConvertedCelsius = str(fahrenheit2celsius(TemperatureFahrenheit))
-DegreeSymbol = u"\N{DEGREE SIGN}"                                       #to print degree sign
+ConvertedCelsius = fahrenheit2celsius(TemperatureFahrenheit)
+DegreeSymbol = u"\N{DEGREE SIGN}"                                                   #to print degree sign
 print()
 
-print("The given temperature in Celsius is " + ConvertedCelsius + DegreeSymbol + "C")
+print("The given temperature in Celsius is " + str(ConvertedCelsius) + DegreeSymbol + "C")
+print()
+
+SuggestedClothing = what_to_wear(ConvertedCelsius)                                  #takes the converted temperature to recommend clothes
+print("Recommended clothing: " + SuggestedClothing)
+
 
 
 '''
