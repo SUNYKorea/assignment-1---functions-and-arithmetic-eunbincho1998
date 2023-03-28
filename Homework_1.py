@@ -3,6 +3,10 @@
 
 # Remove the ellipses (...) when writing your solutions.
 
+
+ALLOW_USER_INPUT = False                                          #manual inputs or not (True: manual, False: constant)
+
+
 # ---------------------------- Exercise I ---------------------------------------
 # ----------------- Convert Fahrenheit to Celsius -------------------------------
 # TODO: Complete the implementation of fahrenheit2celsius () and what_to_wear(). 
@@ -32,13 +36,15 @@ def what_to_wear(celsius):                                        #returns the a
       return "T-shirt"
 
 print()
-print("Let's convert the temperature from Fahrenheit to Celsius and see what clothing is recommended!")     #instruction
+print("Let's convert the temperature from Fahrenheit to Celsius and see which clothing is recommended!")     #instruction
 print()
 
-TemperatureFahrenheit = float(input("What is the temperature in Fahrenheit? Temperature in Fahrenheit:  ")) 
-ConvertedCelsius = fahrenheit2celsius(TemperatureFahrenheit)
+if (ALLOW_USER_INPUT): 
+   TemperatureFahrenheit = float(input("What is the temperature in Fahrenheit? Temperature in Fahrenheit:  "))    #Manual input of temperature in fahrenheit
+else:
+   TemperatureFahrenheit = 32                                                       #Constant value for temperature in fahrenheit
+ConvertedCelsius = fahrenheit2celsius(TemperatureFahrenheit) 
 DegreeSymbol = u"\N{DEGREE SIGN}"                                                   #to print degree sign
-print()
 
 print("The given temperature in Celsius is " + str(ConvertedCelsius) + DegreeSymbol + "C")
 print()
@@ -71,18 +77,22 @@ def compute_triangle_perimeter(x1, y1, x2, y2, x3, y3):                    #Peri
     Perimeter = LengthOfSide1 + LengthOfSide2 + LengthOfSide3
     return Perimeter
 
-print()
-print("Let's solve for the area and the perimeter of a triangle with its vertices!")         #Instruction
-print()
+if (ALLOW_USER_INPUT):
+   print()
+   print("Let's solve for the area and the perimeter of a triangle with its vertices!")         #Instruction
+   print()
 
-x1 = float(input("What is x1? x1 = "))                                                       #Value inputs of three vertices
-y1 = float(input("What is y1? y1 = "))
-x2 = float(input("What is x2? x2 = "))
-y2 = float(input("What is y2? y2 = "))
-x3 = float(input("What is x3? x3 = "))
-y3 = float(input("What is y3? y3 = "))
-print()
+   x1 = float(input("What is x1? x1 = "))                                                       #Value inputs of three vertices
+   y1 = float(input("What is y1? y1 = "))
+   x2 = float(input("What is x2? x2 = "))
+   y2 = float(input("What is y2? y2 = "))
+   x3 = float(input("What is x3? x3 = "))
+   y3 = float(input("What is y3? y3 = "))
+   print()
+else:
+   x1, y1, x2, y2, x3, y3 = 0, 0, 1, 0, 0, 1                                                 #Constant values for three vertices
 
+print()
 TriangleArea = shoelace_triangle_area(x1, y1, x2, y2, x3, y3)                                #Using area function
 print("The area of the triangle is " + str(TriangleArea) + " squared units.")
 
@@ -98,25 +108,29 @@ print("---------- End of Exercise 2 ----------")
 
 import math
 
-def deg2rad(deg):
+def deg2rad(deg):                                                                #Converts angles from degrees to radians
     radian = deg * math.pi / 180
     return radian
 
-def apothem(number_sides, length_side):
+def apothem(number_sides, length_side):                                          #Solves the value of apothem
     angle = 180 / number_sides
     apothem = length_side / (2*math.tan(deg2rad(angle)))
     return apothem
 
-def polygon_area(number_sides, length_side):
+def polygon_area(number_sides, length_side):                                     #Solves the area of a regular polygon
    area = number_sides * length_side * apothem(number_sides, length_side) / 2
    return area
 
 print()
-print("Let's solve for the area of a regular polygon!")
-print()
+if (ALLOW_USER_INPUT):
+   print("Let's solve for the area of a regular polygon!")
+   print()
 
-SideNumber = float(input("How many sides does this polygon have? Side: "))
-SideLength = float(input("How long is the side of this polygon? Length: "))
+   SideNumber = float(input("How many sides does this polygon have? Side: "))    #Manual inputs of number and length of a polygon's side
+   SideLength = float(input("How long is the side of this polygon? Length: "))
+else: 
+   SideNumber, SideLength = 4, 4                                                 #Constant value of number and length of a polygon's side
+
 PolygonArea = polygon_area(SideNumber, SideLength)
 
 print()
@@ -124,6 +138,7 @@ print("The area of the given polygon is " + str(PolygonArea) + " squared units."
 
 print()
 print("---------- End of Exercise 3 ----------")
+print()
 
 # ---------------------------- Test -------------------------------------
 # The following lines are for testing purposes, and will not be part of
@@ -131,7 +146,8 @@ print("---------- End of Exercise 3 ----------")
 
 # Exercise 1 test
 fahrenheit = 40
-what_to_wear(fahrenheit2celsius(fahrenheit))
+clothes = what_to_wear(fahrenheit2celsius(fahrenheit))
+print("Recommended clothing to wear: " + clothes)
 
 # Exercise 2 test
 x1, x2, x3, y1, y2, y3 = -4, -5, 3, -4, 5, -3 # declaration of the vertices of the triangle
