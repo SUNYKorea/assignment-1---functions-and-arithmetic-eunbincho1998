@@ -1,6 +1,8 @@
 # Name: Eunbin Cho
 # SBUID: 115935488
-
+##################### SCORE ######################
+####### Very good work Score:  10/10
+#################################################
 # Remove the ellipses (...) when writing your solutions.
 
 
